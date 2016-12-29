@@ -1,8 +1,10 @@
 package com.bw.ddvs;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements Watcher{
@@ -15,6 +17,14 @@ public class MainActivity extends AppCompatActivity implements Watcher{
         setContentView(R.layout.activity_main);
 
         tv = (TextView) findViewById(R.id.tv);
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GpsActivity.class);
+
+                startActivity(intent);
+            }
+        });
 
         doTest();
     }
